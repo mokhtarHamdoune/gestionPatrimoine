@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipementMobilsTable extends Migration
+class CreatePromosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateEquipementMobilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipement_mobils', function (Blueprint $table) {
+        Schema::create('promos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("marque");
-            $table->string("modele");
-            $table->integer("quantite");
+            $table->string("nom");
+            $table->unsignedBigInteger("id_departement");
+            $table->foreign("id_departement")->references("id")->on("departements");
+       
             $table->timestamps();
-            $table->unique(["marque","modele"]);//je pense haka
         });
     }
 
@@ -30,6 +30,6 @@ class CreateEquipementMobilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipement_mobils');
+        Schema::dropIfExists('promos');
     }
 }

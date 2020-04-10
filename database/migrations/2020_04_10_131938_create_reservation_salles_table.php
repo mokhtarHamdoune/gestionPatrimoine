@@ -15,14 +15,17 @@ class CreateReservationSallesTable extends Migration
     {
         Schema::create('reservation_salles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("salle_id");
-            $table->unsignedBigInteger("module_id");
+            $table->string("titre")->nullable();
+            $table->unsignedBigInteger("id_prof");
+            $table->foreign("id_prof")->references("id")->on("profs");
+            $table->unsignedBigInteger("id_salle");
+            $table->foreign("id_salle")->references("id")->on("salles");
             $table->string("date");
-            $table->string("heure");
+            $table->string("heure_debut");
+            $table->string("heure_fin");  
             $table->timestamps();
-            $table->foreign("salle_id")->references("id")->on("salles");
-            $table->foreign("module_id")->references("id")->on("modules");
-        });
+   
+       });
     }
 
     /**

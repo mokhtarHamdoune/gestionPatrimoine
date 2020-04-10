@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModulesTable extends Migration
+class CreateEquipementMobilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('equipement_mobiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("enseignant_id");
-            $table->string("libille");
+            $table->string("nom");
+            $table->string("reference");
             $table->timestamps();
-            $table->foreign("enseignant_id")->references("id")->on("enseignants")->onUpdate("cascade");
         });
     }
 
@@ -29,6 +28,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('equipement_mobiles');
     }
 }

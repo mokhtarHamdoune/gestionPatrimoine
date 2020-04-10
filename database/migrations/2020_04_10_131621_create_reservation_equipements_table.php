@@ -15,13 +15,15 @@ class CreateReservationEquipementsTable extends Migration
     {
         Schema::create('reservation_equipements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("enseignant_id");
-            $table->unsignedBigInteger("equipement_id");
+            $table->string("titre")->nullable();
+            $table->unsignedBigInteger("id_prof");
+            $table->foreign("id_prof")->references("id")->on("profs");
+            $table->unsignedBigInteger("id_equipement");
+            $table->foreign("id_equipement")->references("id")->on("equipement_mobiles");
             $table->string("date");
-            $table->string("heure");
+            $table->string("heure_debut");
+            $table->string("heure_fin");  
             $table->timestamps();
-            $table->foreign("enseignant_id")->references("id")->on("enseignants");
-            $table->foreign("equipement_id")->references("id")->on("equipement_mobils");
         });
     }
 

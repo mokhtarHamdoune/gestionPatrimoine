@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//equipement mobil 
-class ReservationEquipement extends Model
+
+class Reservation_salle extends Model
 {
     //
 }

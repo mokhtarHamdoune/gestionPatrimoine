@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResponsablesTable extends Migration
+class CreateSallesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateResponsablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('responsables', function (Blueprint $table) {
+        Schema::create('salles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("email");
-            $table->string("password");
+            $table->string("nom");
+            $table->integer("capacite");
+            $table->unsignedBigInteger("id_departement");
+            $table->foreign("id_departement")->references("id")->on("departements");
+       
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateResponsablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsables');
+        Schema::dropIfExists('salles');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupesTable extends Migration
+class CreateDepartementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateGroupesTable extends Migration
      */
     public function up()
     {
-        Schema::create('groupes', function (Blueprint $table) {
+        Schema::create('departements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("annee"); //L1,L2 .. M2
-            $table->string("departement"); // info ,physique ...
-            $table->string("specialité")->nullable(); // si il n y'a pas encore une specialite donc null
+            $table->string("nom");
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateGroupesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groupes');
+        Schema::dropIfExists('departements');
     }
 }

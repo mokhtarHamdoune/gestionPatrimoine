@@ -15,9 +15,13 @@ class CreatePannesTable extends Migration
     {
         Schema::create('pannes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("equipement_id");
-            $table->timestamps();// created at exist deja
-            $table->foreign("equipement_id")->references("id")->on("equipement_mobils");
+            $table->string("probleme")->nullable();
+            $table->string("type_equipement")->nullable();  //fixe ou mobile
+            $table->unsignedBigInteger("id_prof");
+            $table->foreign("id_prof")->references("id")->on("profs");
+            $table->string("id_equipement")->nullable();
+            
+            $table->timestamps();
         });
     }
 
