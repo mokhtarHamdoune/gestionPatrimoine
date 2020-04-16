@@ -1,4 +1,12 @@
 @extends('layouts.master')
+
+@section('index_css')
+    <!-- chartist CSS -->
+    <link href="{{asset('assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/pages/dashboard1.css')}}" rel="stylesheet">
+@endsection
+
 @section('master')
 
     <div class="main-wrapper" id="main-wrapper">
@@ -880,4 +888,11 @@
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
+   @endsection
+
+   @section('index_script')
+        <script src="{{asset('assets/libs/chartist/dist/chartist.min.js')}}"></script>
+        <script src="{{asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
+        <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+        <script src="{{asset('assets/js/pages/dashboards/dashboard1.js')}}"></script>
    @endsection
