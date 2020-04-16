@@ -13,6 +13,7 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
     <!-- This page CSS -->
     <link href="{{asset('assets/css/pages/dashboard1.css')}}" rel="stylesheet">
+   
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,6 +35,7 @@
         <!-- Apps -->
         <!-- ============================================================== -->
         <script src="{{asset('assets/js/app.js')}}"></script>
+        <script src="{{asset('assets/js/jqury.js')}}"></script>
         <script src="{{asset('assets/js/app.init.light-sidebar.js')}}"></script>
         <script src="{{asset('assets/js/app-style-switcher.js')}}"></script>
         <!-- ============================================================== -->
@@ -47,6 +49,7 @@
         <script src="{{asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
         <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
         <script src="{{asset('assets/js/pages/dashboards/dashboard1.js')}}"></script>
+        
     </body>
 
     </html>

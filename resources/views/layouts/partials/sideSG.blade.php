@@ -36,7 +36,9 @@
                         </ul> -->
                     </div>
                      <li>
-                        <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">equalizer</i><span class="hide-menu"> Gestion des séances </span></a>
+                     <a  href="/sg/1/ajoutpromo" class="collapsible-header has-arrow"><i class="material-icons">equalizer</i><span class="hide-menu">Ajouter promo</span></a>
+                    <a  href="/sg/1/selectpromo" class="collapsible-header has-arrow"><i class="material-icons">equalizer</i><span class="hide-menu">Emploi Du temps </span></a>
+                          
                         <div class="collapsible-body">
                            <!--  <ul>
                                 <li><a href="sidebar-type-minisidebar.html"><i class="material-icons">photo_size_select_small</i><span class="hide-menu">Minisidebar</span></a></li>
