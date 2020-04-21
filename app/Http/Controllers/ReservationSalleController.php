@@ -36,7 +36,16 @@ class ReservationSalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reserver = new Reservation_salle();
+        $reserver->titre=$request->titre;
+        $reserver->id_prof=$request->prof;
+        $reserver->promo_id=$request->promo;
+        $reserver->id_salle=$request->salle_id;
+        $reserver->date=$request->date_res;
+        $reserver->heure_debut=$request->heure_deb;
+        $reserver->heure_fin=$request->heure_fin;
+        $reserver->save();
+        return redirect('/sg');
     }
 
     /**

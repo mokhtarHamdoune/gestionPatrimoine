@@ -15,12 +15,14 @@ class CreateSallesTable extends Migration
     {
         Schema::create('salles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger("id_faculte");
             $table->string("nom");
             $table->integer("capacite");
-            $table->unsignedBigInteger("id_departement");
-            $table->foreign("id_departement")->references("id")->on("departements");
-       
+            $table->string("type_salle"); // amphy , labo , class 
+            // $table->unsignedBigInteger("id_departement");
             $table->timestamps();
+            $table->foreign("id_faculte")->references("id")->on("facultes");
+            // $table->foreign("id_departement")->references("id")->on("departements");
         });
     }
 

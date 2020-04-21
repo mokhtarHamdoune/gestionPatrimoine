@@ -2,12 +2,11 @@
 
 @section('search_css')
 <!-- this page css -->
-<link href="{{asset('dist/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('dist/css/pages/data-table.css')}}" rel="stylesheet">
 @endsection
 
 @section('master')
-
+    
     <div class="main-wrapper" id="main-wrapper">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -54,37 +53,17 @@
                                     <thead>
                                         <tr>
                                             <th>Salle</th>
-                                            <th>Capacité</th>
-                                            <th>Heurs Libre</th>
+                                            <th>Type Salle</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>N101</td>
-                                            <td>20</td>
-                                            <td>8:30-10:30</td>
+                                        @foreach($salles as $salle)
+                                        <tr id="{{$salle->id}}">
+                                            <td>{{$salle->nom}}</td>
+                                            <td>{{$salle->type_salle}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>S202</td>
-                                            <td>30</td>
-                                            <td>8:30-11:30</td>
-                                        </tr>
-                                        <tr>
-                                            <td>N008</td>
-                                            <td>35</td>
-                                            <td>8:30-13:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>S001</td>
-                                            <td>35</td>
-                                            <td>8:30-10:30</td>
-                                        </tr>
-                                        <tr>
-                                            <td>S101</td>
-                                            <td>35</td>
-                                            <td>8:30-10:30</td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table> 
                         </div>
@@ -93,18 +72,70 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal Structure -->
+    <!-- <button id="modal_1" class="btn">Modal</button> -->
+    <div class="row">
+    <form id="modal1" class="modal" action="{{route('search.reserver',$departement->id)}}" method="POSt">
+        @csrf
+        <div class="modal-content">
+            <h4>Reserver La Salle <span id="salle"></span></h4>
+            <div>
+                <div class="row">
+                    <div class="col m8 s12 offset-m2 ">
+                        <label>Enseignant</label>
+                        <select class="browser-default" name="prof">
+                            @foreach($departement->profs as $prof)
+                            <option value="{{$prof->id}}">{{$prof->nom}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <!-- pwd -->
+                <div class="row">
+                    <div class="col m8 s12 offset-m2">
+                        <label>Promo</label>
+                        <select class="browser-default" name="promo">
+                            @foreach($departement->promos as $promo)
+                            <option value="{{$promo->id}}">{{$promo->nom}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col m8 s12 offset-m2 ">
+                        <input id="name" name="titre" type="text">
+                        <label for="name">Titre</label>
+                    </div>
+                </div>
+                <input type="hidden" name="salle_id" value="" />
+                <input type="hidden" name="date_res" value="{{$date}}" />
+                <input type="hidden" name="heure_deb" value="{{$heure_deb}}" />
+                <input type="hidden" name="heure_fin" value="{{$heure_fin}}" />
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="modal-footer">
+            <button type='button' class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</button>
+            <button type="submit" class="btn waves-effect">Sauvrader</button>
+        </div>
+    </form>
+    
+    </div>
 @endsection
 
-@section('search_script')
+@section('result_script')
     <script src="{{asset('assets/extra-libs/tiny-editable/mindmup-editabletable.js')}}"></script>
     <script src="{{asset('assets/extra-libs/jquery-datatables-editable/jquery.dataTables.js')}}"></script>
     <script src="{{asset('assets/extra-libs/tiny-editable/numeric-input-example.js')}}"></script>
     <script>
-    $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
-    $('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
     $(function() {
         $('#editable-datatable').DataTable();
+        $('tbody tr').on("click",function(){
+            $("#salle").text($(this).find('td')[0].textContent);
+            $("#modal1 input[name='salle_id']").val($(this).attr("id"));
+            $(".modal").modal('open');
+            
+        });
     });
     </script>
 @endsection

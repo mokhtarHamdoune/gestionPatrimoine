@@ -20,6 +20,8 @@ class CreateReservationSallesTable extends Migration
             $table->foreign("id_prof")->references("id")->on("profs");
             $table->unsignedBigInteger("id_salle");
             $table->foreign("id_salle")->references("id")->on("salles");
+            $table->unsignedBigInteger("promo_id");
+            $table->foreign("promo_id")->references("id")->on("promos");
             $table->string("date");
             $table->string("heure_debut");
             $table->string("heure_fin");  

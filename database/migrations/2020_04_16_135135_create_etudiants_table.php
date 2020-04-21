@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipementFixesTable extends Migration
+class CreateEtudiantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateEquipementFixesTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipement_fixes', function (Blueprint $table) {
+        Schema::create('etudiants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("nom");
-            $table->string("reference");
-            $table->unsignedBigInteger("id_salle");
-            $table->foreign("id_salle")->references("id")->on("salles");
+            $table->string("email");
+            $table->unsignedBigInteger("id_promo");
+            $table->foreign("id_promo")->references("id")->on("promos");
             $table->timestamps();
-         
         });
     }
 
@@ -31,6 +29,6 @@ class CreateEquipementFixesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipement_fixes');
+        Schema::dropIfExists('etudiants');
     }
 }
