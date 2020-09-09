@@ -23,6 +23,6 @@ class Salle extends Model
     }
 
     public function equipements(){
-        return $this->hasMany('App\Equipement_fixe');
+        return $this->hasMany('App\Equipement_fixe','id_salle');
     }
 }

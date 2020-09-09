@@ -13154,3 +13154,96 @@ Padding margin property
   cursor: pointer;
   background-color: #ab9dc9;
 }
+
+/*notifications page*/
+.notif-container{
+  margin: 5% 0px;
+
+}
+.modal-content .modal-title{
+  font-size:2rem;
+  margin-bottom: 20px;
+  color: #006064;
+}
+.details{
+  padding-left:15px;
+}
+.details .list-title {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.details .detail-list{
+  font-size: 1.1em;
+  font-weight: bold;
+  padding-left: 15px;
+}
+.details .detail-list span{
+  font-weight: normal;
+}
+.details .share-date{ 
+  font-weight: bold;
+  float: right;
+}
+.obove-table{
+  display: flex;
+  align-items: center;
+  margin-left:18px;
+}
+.obove-table .delete-icon{
+  margin-left:10px;
+}
+.obove-table .material-icons{
+  font-size: 2rem;
+  cursor: pointer;
+  color: #eee;
+}
+.obove-table .enabled{
+  color:#000;
+  border-radius: 2px;
+  transition:box-shadow 0.3s;
+}
+.obove-table .enabled:hover{
+
+  box-shadow: 0px 0px 2px 0px black;
+}
+
+.table-container{
+  max-height:400px;
+  overflow-y: auto;
+}
+.table-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.table-container::-webkit-scrollbar-thumb {
+  background: #bbb; 
+}
+
+/* Handle on hover */
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa; 
+}
+#notif-datatable tbody tr:hover{
+  transition:box-shadow 0.3s;
+}
+#notif-datatable tbody tr:hover{
+  box-shadow: 0px 0px 2px 0px black;
+}
+#notif-datatable tbody tr td:first-child{
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+#notif-datatable tbody tr td:first-child span{
+  display: inline;
+}
+#notif-datatable tbody tr{
+  font-size: 1.2em;
+}

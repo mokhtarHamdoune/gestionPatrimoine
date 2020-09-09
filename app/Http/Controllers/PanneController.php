@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Panne;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class PanneController extends Controller
 {
     /**
@@ -13,9 +12,10 @@ class PanneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $pannes=Panne::all();
+
+        return view('SG.notifications.notification',['pannes'=>$pannes]);
     }
 
     /**
@@ -45,9 +45,15 @@ class PanneController extends Controller
      * @param  \App\Panne  $panne
      * @return \Illuminate\Http\Response
      */
-    public function show(Panne $panne)
+    public function show(Request $request)
     {
-        //
+        
+        $panne = Panne::find($request->id);
+        return response()->json(['details'=>[
+            'enseignant'=>['nom'=>$panne->Declarateur->nom,'prenom'=>$panne->Declarateur->prenom,'departement'=>$panne->Declarateur->departement->nom],
+            'equipement'=>['nom'=>$panne->equipement->nom,'reference'=>$panne->equipement->reference],
+            'share_date'=>$panne->created_at
+        ]]);
     }
 
     /**
@@ -79,8 +85,14 @@ class PanneController extends Controller
      * @param  \App\Panne  $panne
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Panne $panne)
+    public function destroy($ids)
     {
-        //
+        
+    }
+
+    public function delete(Request $request){
+        $ids =explode(",",$request->query('ids'));
+        Panne::destroy($ids);
+        return response()->json(["etat"=>true]);
     }
 }

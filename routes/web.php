@@ -50,3 +50,10 @@ Route::post('/sg/{id_depart}/search/result','ReservationSalleController@store')-
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ENseignant
+
+
+//Notification
+
+Route::get('/sg/notification','PanneController@index')->name('notif');
+Route::get('/sg/notification/delete','PanneController@delete')->name('notif.delete');
+Route::get('/sg/notification/details','PanneController@show');
