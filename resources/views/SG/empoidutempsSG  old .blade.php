@@ -1,6 +1,8 @@
 @extends('layouts.master')
-
 @section('master')
+
+<!--  auth id_depart -->
+<?php  $iddepart = 1 ?>
 
     <div class="main-wrapper" id="main-wrapper">
         <!-- ============================================================== -->
@@ -15,8 +17,7 @@
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
         <!-- ============================================================== -->
-        <!--  //    @ include('layouts/partials/header') --> 
-     
+          @include('layouts/partials/header')
         <!-- ============================================================== -->
         <!-- Sidebar scss in sidebar.scss -->
         <!-- ============================================================== -->
@@ -27,12 +28,7 @@
         <!-- ============================================================== -->
         <!-- Page wrapper scss in scafholding.scss -->
         <!-- ============================================================== -->
-   
-   
-<!--  auth id_depart -->
-<?php  $iddepart = 1 ?>
-
-     <div class="page-wrapper">
+        <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Title and breadcrumb -->
             <!-- ============================================================== -->
@@ -85,11 +81,11 @@
                                                 <table class="table" >
                                                 <tr>
                                                     <td>  -  </td>
-                                                    <td>08h30 - 10h00</td>
-                                                    <td>10h00 - 11h30</td>
-                                                    <td>11h30 - 13h00</td>
-                                                    <td>13h30 - 15h00</td>
-                                                    <td>15h00 - 16h30</td>
+                                                    <td>Dimanche</td>
+                                                    <td>Lundi</td>
+                                                    <td>Mardi</td>
+                                                    <td>Mercredo</td>
+                                                    <td>Jeudi</td>
                                                 </tr>
 
    <tr>                                            
@@ -99,11 +95,11 @@
 $i=1;
  foreach($seances as $seance):
 
- if($i==1)   echo "<td> Dimanche </td>";
- if($i==6)   echo "</tr><tr> <td>Lundi</td>";
- if($i==11)   echo "</tr><tr><td>Mardi</td>";
- if($i==16)   echo "</tr><tr><td>  Mercredi  </td>";
- if($i==21)   echo "</tr><tr><td> Jeudi  </td>";
+ if($i==1)   echo "<td>08h30 - 10h00</td>";
+ if($i==6)   echo "</tr><tr><td>10h00 - 11h30</td>";
+ if($i==11)   echo "</tr><tr><td>11h30 - 13h00</td>";
+ if($i==16)   echo "</tr><tr><td>13h30 - 15h00</td>";
+ if($i==21)   echo "</tr><tr><td>15h00 - 16h30</td>";
 
     if($seance->id_module !='')
 {
@@ -112,6 +108,7 @@ $i=1;
 else
 {
     echo '<td><button   href="#add-new-event" onclick="update_var('.$seance->id.')" class="btn light-blue lighten-1 modal-trigger m-t-10 m-l-10">ajouter</button></td>';
+
 }
 
 $i++;
@@ -211,7 +208,7 @@ endforeach; ?>
      function ajouter_seance()
      {
        
-       var id_prof =  document.getElementById('prof').value;
+        var id_prof =  document.getElementById('prof').value;
        var id_module =  document.getElementById('module').value;
        var id_salle = document.getElementById('salle').value;
        var type_seance =  document.getElementById('type').value;
@@ -388,6 +385,5 @@ endforeach; ?>
         <!-- Right Sidebar -->
         <!-- ============================================================== -->
     </div>
-    
     <!-- ============================================================== -->
    @endsection
