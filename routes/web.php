@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('SG.indexSG');
-});
+// Route::get('/', function () {
+//     return view('SG.indexSG');
+// });
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,3 +57,12 @@ Route::post('/sg/{id_depart}/search/result','ReservationSalleController@store')-
 Route::get('/sg/notification','PanneController@index')->name('notif');
 Route::get('/sg/notification/delete','PanneController@delete')->name('notif.delete');
 Route::get('/sg/notification/details','PanneController@show');
+
+///Prof 
+
+Route::get('/enseignant',function(){
+    return view('Enseignant.index');
+});
+//afficher la page pour declarer une panne
+Route::get('/enseignant/{id_deparement}/declarer','PanneController@create')->name('declarer.index');
+Route::post('/enseignant/{id_prof}/declarer','PanneController@store')->name('declarer.store');

@@ -13168,12 +13168,12 @@ Padding margin property
 .details{
   padding-left:15px;
 }
-.details .list-title {
+.details .details-titles {
   color: #333;
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
-.details .detail-list{
+.details .detail-bodys{
   font-size: 1.1em;
   font-weight: bold;
   padding-left: 15px;

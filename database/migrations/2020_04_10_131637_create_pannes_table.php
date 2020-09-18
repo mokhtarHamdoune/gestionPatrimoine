@@ -20,6 +20,7 @@ class CreatePannesTable extends Migration
             $table->foreign("id_prof")->references("id")->on("profs");
             $table->unsignedBigInteger("id_equipement");
             $table->foreign('id_equipement')->references('id')->on('equipement_fixes');
+            $table->string("commentaire")->nullable();
             $table->timestamps();
         });
     }

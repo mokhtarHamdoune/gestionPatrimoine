@@ -14,8 +14,8 @@ class Salle extends Model
         return $this->hasMany('App\Seance');
     }
 
-    public function facutle(){
-        return $this->belongsTo("App\Faculte");
+    public function faculte(){
+        return $this->belongsTo("App\Faculte",'id_faculte;');
     }
 
     public function reservations(){

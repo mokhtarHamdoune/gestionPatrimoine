@@ -55,11 +55,14 @@ $(function(){
                 url: "http://127.0.0.1:8000/sg/notification/details?id="+id,
                 dataType:"json",
                 success: function ({details}) {
-                   $('.detail-list').eq(0).html(`<li>Nom : <span>${details.enseignant.nom}</span> </li>
+                   $('.detail-body').eq(0).html(`<li>Nom : <span>${details.enseignant.nom}</span> </li>
                    <li>Prenom:<span>${details.enseignant.prenom}</span> </li>
                    <li>Département: <span>${details.enseignant.departement}</span> </li>`);
-                   $('.detail-list').eq(1).html(`<li>Nom de produit: <span>${details.equipement.nom}</span> </li>
+                   
+                   $('.detail-body').eq(1).html(`<li>Nom de produit: <span>${details.equipement.nom}</span> </li>
                    <li>Reference: <span>${details.equipement.reference}</span> </li>`);
+
+                   $('.detail-body').eq(2).text(details.commentaire);
                    let date=new Date(details.share_date);
                    $('.share-date span').text(`${date.toLocaleDateString()} ${date.toLocaleTimeString(navigator.language, {
                     hour: '2-digit',

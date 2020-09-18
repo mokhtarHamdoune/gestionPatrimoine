@@ -48,8 +48,8 @@
                     <h4 class="modal-title">Détails</h4>    
                     <div class="details">
                         <div class="enseignat-container">
-                            <h6 class="list-title">About Enseigant</h6>
-                            <ul class="detail-list">
+                            <h6 class="details-title">About Enseigant</h6>
+                            <ul class="detail-body">
                                 <li>Nom : <span>Hamdoune</span> </li>
                                 <li>Prenom:<span>Mokhtar</span> </li>
                                 <li>Département: <span>Physique</span> </li>
@@ -57,11 +57,18 @@
                         </div>
                         <hr>
                         <div class="materiel">
-                            <h6 class="list-title">About Equipement</h6>
-                            <ul class="detail-list">
+                            <h6 class="details-title">About Equipement</h6>
+                            <ul class="detail-body">
                                 <li>Nom de produit: <span>Samsung</span> </li>
                                 <li>Reference: <span>15468T</span> </li>
                             </ul>
+                        </div>
+                        <hr>
+                        <div class="commentaire">
+                            <h6 class="details-title">Commentaire sur le panne</h6>
+                            <div class="detail-body">
+                                bl bla bla bla 
+                            </div>
                         </div>
                         <hr>
                         <div class="share-date">
